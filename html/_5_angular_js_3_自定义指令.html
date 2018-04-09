@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 自定义指令</title>
+</head>
+<body ng-app="testApp">
+    <!--元素显示方式(E)-->
+    <cjs-command></cjs-command>
+    <!--属性显示方式(A)-->
+    <div cjs-command></div>
+    <!--类显示方式(C)-->
+    <div class="cjs-command"></div>
+    <!--注释显示方式(M)，请注意，经过测试，请将指令与后半截注释符之间留出一个空格，否则会识别不了-->
+    <!--directive:cjs-command -->
+
+    <script>
+        var app=angular.module("testApp",[]);
+        //自定义指令需要驼峰命名，使用时两部分分别小写再用横杠连接
+        app.directive("cjsCommand",function () {
+            return{
+                restrict:"EACM",//可以单独设置，也可以全部设置
+                replace:true,//当设置为注释显示(M)时，该属性值必须为true，其他显示方式可不设
+                template:"<h1>Angular is powerful</h1>"
+            }
+        });
+    </script>
+</body>
+</html>

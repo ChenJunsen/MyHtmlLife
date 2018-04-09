@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular Module使用</title>
+</head>
+<body>
+    <!--主体部分是先找到一个ng-app的容器，自定义名字。ng-controller可以不用立马设置，除非像该例有需要控制里面的输入域内容-->
+    <div ng-app="testApp" ng-controller="testCtrl">
+        <!--ng-model是用于双向绑定的标志-->
+        <input type="text" ng-model="edit"><br>
+        <!--绑定方式1：两个花括号-->
+        {{edit}}<br>
+        <!--绑定方式2：使用ng-bind指令-->
+        <span ng-bind="edit"></span>
+    </div>
+    <script>
+        var app=angular.module("testApp",[]);//先定位到app
+        app.controller("testCtrl",function ($scope) {//再定位到controller,第二个是回调函数，形参是$scope,不能改其他名字
+            $scope.edit="初始值";//通过这种方式设置初始值
+        });
+    </script>
+
+
+    <!--使用请注意：-->
+    <!--1.经过测试，发现一个页面只能有一个ng-app,不管名字是否相同-->
+    <!--2.ng-app的值可以为空，这就代表了使用系统默认的绑定名字。但是如果设置了名字，那么必须在js脚本里面绑定这个app,否则无效-->
+    <!--<div ng-app="testApp2">
+        <input type="text" ng-model="edit2"><br>
+        {{edit2}}
+    </div>
+    <script>
+        var app2=angular.module("testApp2",[]);
+    </script>-->
+</body>
+</html>
