@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="../js/angular.min.js"></script>
+    <script src="../js/jquery-3.3.1.min.js"></script>
+    <script src="../js/js04.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div ng-app="form_user" ng-controller="formCtrl">
+        姓名<input type="text" placeholder="请输入姓名" id="ed_name" ng-model="e_name">
+        年龄<input type="text" placeholder="请输入年龄" id="ed_age" ng-model="e_age">
+        国籍<input type="text" placeholder="请输入国籍" id="ed_nation" ng-model="e_nation">
+        职务<input type="text" placeholder="请输入职务" id="ed_job" ng-model="e_job"><br>
+
+        用户信息:<br>
+        {{e_name+" "+e_age+" "+e_nation+" "+e_job}}
+    </div>
+</body>
+</html>

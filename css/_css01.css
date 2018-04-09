@@ -1,0 +1,23 @@
+/*指定标签选择器，对所有的body生效*/
+body{
+    background-color: black;/*body背景色*/
+    color: aqua;/*body内部元素默认字体颜色*/
+}
+/*类选择器，对所有class属性为input_button的标签有效*/
+.input_button{
+    background: url("../asset/img/btn_bg_middle.png") no-repeat;
+    border: 0px;/*去掉按钮自带边框*/
+    width: 391px;
+    height: 88px;
+    color: aliceblue;/*按钮字体颜色*/
+    font-size: 25px;/*按钮字体大小*/
+    font-family: "Bauhaus 93";/*按钮字体类型*/
+    font-weight: bold;/*按钮字体粗体*/
+}
+/*id选择器，对于id为edit的标签有效*/
+#edit{
+    width: 300px;
+    height: 66px;
+    font-size: 35px;
+    text-align: center;
+}
