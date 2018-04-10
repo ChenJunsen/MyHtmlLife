@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/js06.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 过滤器</title>
+</head>
+<body>
+    <div ng-app="testApp">
+        <!--大小写过滤器-->
+        <div ng-controller="nameCtrl">
+            大写转换:<input type="text" ng-model="ed_uppercase"><br>
+            <!--过滤器使用方式就是在原本module后面加根管道线再接上相应属性-->
+            {{ed_uppercase | uppercase}}<br>
+            小写转换:<input type="text" ng-model="ed_lowercase"><br>
+            {{ed_lowercase | lowercase}}<br>
+        </div>
+        <hr>
+        <!--金钱符格式化-->
+        <div ng-controller="currencyCtrl">
+            数量:<input type="number" ng-model="ed_count"><br>
+            单价:<input type="number" ng-model="ed_price"><br>
+            {{ed_count*ed_price | currency}}
+        </div>
+        <hr>
+        <div ng-controller="countryCtrl">
+            手动输入过滤条件:<input type="text" ng-model="ed"><br>
+            <!--orderBy升序排序-->
+            <!--输入过滤通过filter属性来绑定对应的model-->
+            <li ng-repeat="country in countries | orderBy:'code' | filter:ed">
+                <!--可以混合书写，括号加管道线-->
+                {{"英文名字:"+(country.en | uppercase)+" 中文名字:"+country.cn+" 英文缩写:"+country.abbr+" 地区代码:"+country.code}}
+            </li>
+        </div>
+        <hr>
+        <div ng-controller="diyFilterCtrl">
+            <input type="text" ng-model="oriStr">
+            {{oriStr | reverse | uppercase}}
+        </div>
+    </div>
+</body>
+</html>
