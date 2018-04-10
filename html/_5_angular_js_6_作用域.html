@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 作用域</title>
+</head>
+<body>
+    <!--一个App可以对应多个controller-->
+    <div ng-app="testApp">
+
+        <div ng-controller="testCtrl">
+            <input type="text" ng-model="name"><br>
+            姓名是:{{name}}<br>
+            <input type="button" value="say name" ng-click="helloClick()"><br>
+            <!--ng-repeat表示可以重复设置这个元素-->
+            <img ng-repeat="url in urls" src="{{url}}"><br>
+
+            姓名展示:{{cc()}}
+            <li ng-repeat="n in names">{{n}}{{cc()}}</li>
+        </div>
+
+        <script>
+            var app=angular.module("testApp",[]);
+            //回调的第一个是当前dom作用域，第二个是全局根作用域
+            app.controller("testCtrl",function ($scope,$rootScope) {
+                $scope.name="CJS";
+                $scope.helloClick=function () {
+                    alert("你的名字是:"+$scope.name)
+                };
+                $scope.urls=[
+                    "https://steamcdn-a.akamaihd.net/steam/apps/578080/capsule_sm_120.jpg?t=1523000243",
+                    "https://steamcdn-a.akamaihd.net/steam/subs/124923/capsule_sm_120.jpg?t=1472603344",
+                    "https://steamcdn-a.akamaihd.net/steam/apps/552520/capsule_sm_120.jpg?t=1522436984",
+                    "https://steamcdn-a.akamaihd.net/steam/apps/271590/capsule_sm_120.jpg?t=1516043170",
+                    "https://steamcdn-a.akamaihd.net/steam/apps/720250/capsule_sm_120.jpg?t=1522792228",
+                    "https://steamcdn-a.akamaihd.net/steam/apps/495560/capsule_sm_120.jpg?t=1523034028",
+                ];
+                //作用域的值可以跟数组，普通字符或者方法
+                $scope.names=["tom","jason","rock","will","fans"];
+                $rootScope.cc=function () {
+                    return "fuck";
+                };
+            })
+        </script>
+
+        <script src="../js/js05.js"></script>
+        <!--可以引入外部文件的controller,js05.js-->
+        <div ng-controller="testCtrl2">
+            <li ng-repeat="str in myStrs">
+                {{str.x+"--"+str.y}}
+            </li>
+        </div>
+    </div>
+</body>
+</html>
