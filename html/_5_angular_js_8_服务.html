@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <!--<script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
+    <script src="../js/js07.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 服务</title>
+</head>
+<body>
+    <div ng-app="testApp">
+        <div ng-controller="cpu">
+            <h2>当前页面的URL是:</h2>{{mUrl}}
+        </div>
+        <hr>
+        <div ng-controller="httpCtrl">
+            <img src="{{imgUrl}}">
+        </div>
+        <hr>
+        <div ng-controller="timeoutCtrl">
+            <span>{{tt}}</span>
+        </div>
+        <hr>
+        <div ng-controller="intervalCtrl">
+            现在时间:{{cTime}}
+        </div>
+        <hr>
+        <div ng-controller="diyCtrl">
+            16进制转换:<input type="number" ng-model="ed_number"><br>
+            <h2>{{ed_number | decimal2HexFilter}}</h2>
+        </div>
+    </div>
+
+    <!--<div ng-app="myApp" ng-controller="myCtrl">
+        <p> 当前页面的url:</p>
+        <h3>{{myUrl}}</h3>
+    </div>
+
+    <p>该实例使用了内建的 $location 服务获取当前页面的 URL。</p>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $location) {
+            $scope.myUrl = $location.absUrl();
+        });
+    </script>-->
+</body>
+</html>
