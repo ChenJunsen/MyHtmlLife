@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 简单验证</title>
+    <style>
+        span{
+            color: red;
+        }
+        /*验证未通过时的样式*/
+        input.ng-invalid{
+            color: blueviolet;
+        }
+        /*验证通过时的样式*/
+        input.ng-valid{
+            color: chartreuse;
+        }
+        input::-webkit-input-placeholder{
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <form ng-app="testApp" name="ddd">
+        邮箱:<input type="email" ng-model="e_email" name="iii" placeholder="请输入邮箱地址">
+        <span ng-show="ddd.iii.$error.email">你输的是非法邮箱地址</span>
+    </form>
+    <script>
+        angular.module("testApp",[]);
+    </script>
+</body>
+</html>
