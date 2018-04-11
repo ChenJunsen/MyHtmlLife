@@ -48,3 +48,11 @@ app.filter("decimal2HexFilter",["decimal2Hex",function (decimal2Hex) {
 app.controller("diyCtrl",function ($scope) {
     $scope.ed_number=12;
 });
+
+app.controller("demoCtrl",function ($scope) {
+    $scope.first="Wong";
+    $scope.second="Tang";
+    $scope.pName=function () {
+        return $scope.first+$scope.second;
+    }
+});

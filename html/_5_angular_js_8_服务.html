@@ -29,6 +29,13 @@
             16进制转换:<input type="number" ng-model="ed_number"><br>
             <h2>{{ed_number | decimal2HexFilter}}</h2>
         </div>
+
+        <hr>
+        <div ng-controller="demoCtrl">
+            <input type="text" ng-model="first" placeholder="姓">
+            <input type="text" ng-model="second" placeholder="名"><br>
+            姓名是:{{pName()}}
+        </div>
     </div>
 
     <!--<div ng-app="myApp" ng-controller="myCtrl">
