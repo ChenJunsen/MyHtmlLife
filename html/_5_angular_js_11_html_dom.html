@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular Html Dom</title>
+</head>
+<body ng-app="testApp">
+    <div ng-controller="testCtrl">
+        <!--貌似ng-disable的属性与checkbox的属性相反-->
+        <input type="button" value="{{btnEnableSwitch}}" ng-disabled="!btnEnableSwitch"><br>
+        点我让按钮可以点击:<input type="checkbox" ng-model="btnEnableSwitch">
+        <hr>
+
+        <!--ng-show属性用于设置该标签可不可见-->
+        <h2 ng-show="false">你看不见我</h2>
+
+        <!--ng-show的值可以是一个表达式-->
+        输入大于10的数字可以显示隐藏文字:<input type="number" ng-model="ed">
+        <h2 ng-show="ed>10">我是隐藏文字</h2>
+
+        <!--和ng-show相对应的还有个ng-hide二者功能相反-->
+    </div>
+<script>
+    var app=angular.module("testApp",[]);
+    app.controller("testCtrl",function ($scope) {
+        $scope.ed=10;
+    });
+</script>
+</body>
+</html>
