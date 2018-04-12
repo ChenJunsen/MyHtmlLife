@@ -36,6 +36,7 @@ app.factory("CalFactory",function () {
 app.service("CalService",function (CalFactory) {
     this.add=function (a,b) {
         return CalFactory.add1(a,b);
+        
     }
 /*    this.mul=function (a,b) {
         return CalFactory.mul1(a,b);
