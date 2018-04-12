@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/js09.js"></script>
+    <meta charset="UTF-8">
+    <title>Angular 选择框</title>
+</head>
+<body ng-app="testApp">
+    1.使用‘<’option‘>’标签进行显示
+    <div ng-controller="optCtrl1">
+        <select>
+            <option ng-repeat="name in names">{{name}}</option>
+        </select>
+    </div>
+    <hr>
+    2.使用‘<’ng-option‘>’标签进行显示
+    <div ng-controller="optCtrl2">
+        <!--WebStorm编译器显示红杠，但是实际可以运行-->
+        <select ng-options="p.name for p in persons" ng-model="selectP"></select><br>
+
+        当前选择了{{selectP}}<br><br>
+
+        <!--上面的是以数组方式进行列表展示，下面的以对象方式进行展示-->
+        <select ng-options="y.name for (x,y) in xys" ng-model="selectX"></select>
+    </div>
+
+    <!--ng-repeat 指令是通过数组来循环 HTML 代码来创建下拉列表，但 ng-options 指令更适合创建下拉列表，它有以下优势：
+    使用 ng-options 的选项是一个对象， ng-repeat 是一个字符串。-->
+</body>
+</html>
