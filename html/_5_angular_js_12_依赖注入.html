@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/angular.min.js"></script>
+    <!--<script src="../js/js10.js"></script>-->
+    <meta charset="UTF-8">
+    <title>Angular 依赖注入</title>
+</head>
+<body  >
+    <!--<div ng-app="testApp" ng-controller="cc">
+        <input type="number" ng-model="n1"><input type="number" ng-model="n2">{{res}}<br>
+        &lt;!&ndash;<button ng-click="addClick()">加法</button><br>
+        <button ng-click="mulClick()">乘法</button><br>
+        <button ng-click="subClick()">减法</button><br>
+        <button ng-click="squareClick()">平方</button><br>&ndash;&gt;
+    </div>-->
+
+    <div ng-app = "mainApp" ng-controller = "CalcController">
+        <p>输入一个数字: <input type = "number" ng-model = "number" /></p>
+        <button ng-click = "square()">X<sup>2</sup></button>
+        <p>结果: {{result}}</p>
+    </div>
+
+    <script>
+        var mainApp = angular.module("mainApp", []);
+        mainApp.value("defaultInput", 5);
+
+        mainApp.factory('MathService', function() {
+            var fac = {};
+
+            fac.multiply = function(a, b) {
+                return a * b;
+            }
+
+            fac.sub=function(a,b){
+                return a-b;
+            }
+            return fac;
+        });
+
+        mainApp.service('CalcService', ["MathService",function(MathService){
+            this.square = function(a) {
+                return MathService.multiply(a,a);
+            }
+            this.sub=function(a,b){
+                return MathService.sub(a,b);
+            }
+        }]);
+
+        mainApp.controller('CalcController',["$scope","CalcService","defaultInput",function($scope, CalcService, defaultInput) {
+            $scope.number = defaultInput;
+            $scope.result = CalcService.sub($scope.number,$scope.number);
+
+            $scope.square = function() {
+                $scope.result = CalcService.square($scope.number);
+            }
+        }]);
+
+    </script>
+</body>
+</html>
