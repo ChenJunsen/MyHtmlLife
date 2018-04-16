@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vx2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>VX学习</title>
+</head>
+<body>
+    <div v-app="tt" v-controller="testCtrl">
+        {{hello}}
+    </div>
+
+    <script>
+        //1.bind方法
+        var person={name:"Tom",age:0};
+        var bindP=vx.bind(person,function (age) {
+//            alert(person.name+"的年纪是"+age);
+            console.log(person.name+"的年纪是"+age);
+        },27);
+        bindP();
+        //tips:bind方法全写是bind(obj,function,params)
+        //params可以省略.如果不省略，代表那个值是写死的，如果省略，可以外部传参
+        var bindP2=vx.bind(person,function (age) {
+            console.log(person.name+"的年纪是"+age);
+        });
+        bindP2(33);
+
+        //2.经典写法(仿Angular)
+        var app=angular.module("tt",[]);
+        app.controller("testCtrl",["$scope",function ($scope) {
+            $scope.hello="Hahahahahaah";
+        }]);
+
+        //这种写法可以不用在html中绑定app的名字，通过vx.bootstrap(document, ['tt'])动态绑定
+        /*var app=angular.module("tt",[]);
+        app.controller("testCtrl",["$scope",function ($scope) {
+            $scope.hello="Hahahahahaah";
+        }]);
+        vx.bootstrap(document, ['tt']);*/
+    </script>
+</body>
+</html>
