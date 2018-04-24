@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vx2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>VX foreach测试</title>
+</head>
+<body v-app="testApp">
+<div v-controller="testCtrl">
+    {{res}}
+</div>
+<script>
+    var app = vx.module("testApp", []);
+    app.controller("testCtrl", ["$scope", function ($scope) {
+        /*var values=[
+         {"name":"Jason","age":"12"},
+         {"name":"Mark","age":"20"},
+         {"name":"Lura","age":"5"}
+         ];*/
+        var values =
+                {name: "Jason", age: "12"}
+                ;
+        var ss = [];
+
+
+        //foreach函数有三个参数，第三个可选。
+        //第一个表示数据列表源，可以是数组可以是对象；
+        //当是数组时，key是下标(从0开始)，value代表的是该下标代表的具体元素
+        //当是对象时，key代表的是具体的属性名字，value代表的是该属性对应的值
+        vx.forEach(values, function (value, key) {
+            console.log("value:" + value + ",key:" + key);
+            this.push(value + ":" + key);
+        }, ss);
+
+        $scope.res = ss.join(".");
+    }]);
+</script>
+</body>
+</html>
