@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/vx2.min.js"></script>
+    <meta charset="UTF-8">
+    <title>VX fromJson测试</title>
+</head>
+<body v-app="testApp">
+<div v-controller="testCtrl">
+    <div vx-module="display"></div>
+</div>
+<script>
+    var app = vx.module("testApp", []);
+
+    var json = '[{"name":"user1"},{"name":"user2"},{"name":"user3"}]';
+    var json2 = '{"A":"a0001"}';
+
+    var jsonM = '{"name":"liSi", "password":"321"}';
+    var jsonArr = '[{"name":"zhangSan", "password":"123"},{"name":"liSi", "password":"321"}]';
+
+    var array = vx.fromJson(json);
+    var array2 = angular.fromJson(json2);
+    console.log(array);
+    console.log(array2);
+
+    var a=vx.identity("I am groot");//返回它第一参数的函数. 此函数多用于函数式编程.
+    console.log(a);
+
+    app.controller("testCtrl", ["$scope", function ($scope) {
+
+    }]);
+</script>
+</body>
+</html>
