@@ -27,6 +27,16 @@
         mainApp.value("defaultInput", 5);
 
         mainApp.factory('MathService', function() {
+            //把我们定义的方法和数据都放到一个对象中，并且返回这个对象，这就是factory
+            //可以这样写:
+//            var fac={
+//                        multiply:function(a,b){
+//                        return a*b;
+//                    },
+//                        sub:function(a,b){
+//                          return a-b;
+//                        }
+//                }
             var fac = {};
 
             fac.multiply = function(a, b) {
