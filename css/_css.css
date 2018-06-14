@@ -1,0 +1,23 @@
+body {
+    background: black;
+    text-align: center;
+    color: white;
+    font-size: 50px;
+}
+button{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 40px;
+    border-radius: 3px;
+}
+.green{
+    background-color: #4CAF50; /* Green */
+}
+.red{
+    background-color: #f44336;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VX 其他常用参数测试</title>
+</head>
+<body v-app="testApp">
+    1.extend对象属性复制<br>
+    <div v-controller="extendCtrl">
+        <div >{{ex01}}</div>
+        <div >{{ex02}}</div>
+        <div >{{ex03}}</div>
+    </div>
+    <hr>
+    2.injector依赖注入<br>
+    <!--<div v-controller="injectCtrl">-->
+
+    <!--</div>-->
+    <hr>
+    3.一些函数<br>
+    <div v-controller="funcCtrl">
+        <span>{{val01}}</span>是不是数组:{{isA}}<br>
+        <span>{{val02}}</span>是不是时间:{{isD}}
+    </div>
+</body>
+<script src="../js/vx2.min.js"></script>
+<script src="../js/js11.js"></script>
+</html>

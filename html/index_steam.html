@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/_css.css"/>
+    <meta charset="UTF-8">
+    <title>欢迎来到Steam</title>
+</head>
+<body>
+<img src="../asset/img/steam_logo.png">
+<p>欢迎来到Steam</p>
+<div>
+    <button class="green" onclick="jsapi_call('show_dialog_native',{'title':'消息','msg':'我是H5调用原生对话框的'})">调用原生Dialog
+    </button>
+</div>
+<div>
+    <button class="red" onclick="jsapi_call('show_toast_native',{'msg':'我是H5调用原生toast的'})">调用原生Toast</button>
+</div>
+<script type="text/javascript">
+    function jsapi_call(apiName, params) {
+        <!--window.AlipayJSBridge && AlipayJSBridge.call(apiName, params);-->
+        window.AlipayJSBridge && AlipayJSBridge.call(apiName, params, function (data) {
+            alert('调用结果' + JSON.stringify(data));
+        });
+    }
+
+</script>
+</body>
+</html>
